@@ -23,23 +23,38 @@ defmodule FlutterServerWeb.HelloLive do
     ~FLUTTER"""
       <flutter>
         <AppBar>
-          <title>hello</title>
+          <title>
+            <Row>
+              <CachedNetworkImage imageUrl="/images/logo.png" width="50" height="50" />
+              hello world - flutter
+            </Row>
+          </title>
         </AppBar>
         <viewBody>
           <Container padding="10">
             <Container padding={10 + @counter} decoration={bg_color(@counter)}>
               <Text>Margin Counter <%= @counter %></Text>
-              <ElevatedButton flutter-click="go_back">go back</ElevatedButton>
             </Container>
-            <Row>
-              <ElevatedButton phx-click={Dart.switch_theme("dark")}>Switch dark theme</ElevatedButton>
-              <Container margin="0 20 0 0">
+            <Column>
+              <ElevatedButton phx-value-rr="ee" phx-click={Dart.switch_theme("dark")}>Switch dark theme</ElevatedButton>
+              <Container margin="10 0 0 0">
                 <ElevatedButton phx-click={Dart.switch_theme("light")}>Switch light theme</ElevatedButton>
               </Container>
-            </Row>
+            </Column>
           </Container>
         </viewBody>
-        <BottomNavigationBar currentIndex="0" selectedItemColor="blue-500">
+        <NavigationRail labelType="all" selectedIndex="0"
+          phx-responsive={Dart.show()}
+          phx-responsive-when="window_width >= 600">
+          <NavigationRailDestination label="Page 1" icon="home" />
+          <NavigationRailDestination label="Page 2" live-patch="/second-page" icon="home" />
+          <NavigationRailDestination label="Increment" icon="arrow_upward" />
+          <NavigationRailDestination label="Decrement" icon="arrow_downward" />
+        </NavigationRail>
+        <BottomNavigationBar
+          phx-responsive={Dart.hide()}
+          phx-responsive-when="window_width > 600"
+          currentIndex="0" selectedItemColor="blue-500">
           <BottomNavigationBarIcon name="home" label="Page 1" />
           <BottomNavigationBarIcon live-patch="/second-page" name="home" label="Page 2" />
           <BottomNavigationBarIcon phx-click="inc" name="arrow_upward" label="Increment" />
@@ -55,7 +70,7 @@ defmodule FlutterServerWeb.HelloLive do
     ~H"""
     <div class="flex flex-col w-full h-screen items-center justify-center">
       <div>Margin Counter: <%= @counter %> on the web</div>
-      <button phx-click="inc" class="ml-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+      <button value="my button" phx-click="inc" phx-value="rageux" phx-value-re="ff" class="ml-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
        Increment counter
       </button>
       <.link patch={~p"/second-page"}>Second page</.link>

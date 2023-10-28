@@ -21,6 +21,18 @@
     "appBarTheme": {
         "backgroundColor": "#0f172a"
     },
+    "navigationRailTheme": {
+        "backgroundColor": "#0f172a",
+        "selectedIconTheme": {
+            "color": "#ffffff"
+        },
+        "selectedLabelTextStyle": {
+            "color": "#ffffff"
+        },
+        "unSelectedLabelTextStyle": {
+            "color": "#ffffff"
+        }
+    },
     "elevatedButtonTheme": {
         "style": {
             "backgroundColor": "#6366f1",
