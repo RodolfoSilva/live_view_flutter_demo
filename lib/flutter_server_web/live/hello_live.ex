@@ -52,13 +52,14 @@ defmodule FlutterServerWeb.HelloLive do
           <NavigationRailDestination label="Decrement" icon="arrow_downward" />
         </NavigationRail>
         <BottomNavigationBar
+          showUnselectedLabel="true"
           phx-responsive={Dart.hide()}
           phx-responsive-when="window_width > 600"
           currentIndex="0" selectedItemColor="blue-500">
-          <BottomNavigationBarIcon name="home" label="Page 1" />
-          <BottomNavigationBarIcon live-patch="/second-page" name="home" label="Page 2" />
-          <BottomNavigationBarIcon phx-click="inc" name="arrow_upward" label="Increment" />
-          <BottomNavigationBarIcon phx-click="dec" name="arrow_downward" label="Decrement" />
+          <BottomNavigationBarItem icon="home" label="Page 1" />
+          <BottomNavigationBarItem live-patch="/second-page" icon="home" label="Page 2" />
+          <BottomNavigationBarItem phx-click="inc" icon="arrow_upward" label="Increment" />
+          <BottomNavigationBarItem phx-click="dec" icon="arrow_downward" label="Decrement" />
         </BottomNavigationBar>
       </flutter>
     """

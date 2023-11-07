@@ -68,10 +68,10 @@ defmodule FlutterServerWeb.SecondPageLive do
               phx-window-resize-when="window_width > 600"
               currentIndex="1"
               selectedItemColor="blue-500">
-          <BottomNavigationBarIcon live-patch="/" name={"home"} label={"Page 1"} />
-          <BottomNavigationBarIcon  name={"work"} label={"Page 2"} />
-          <BottomNavigationBarIcon name="arrow_upward" label="Increment" />
-          <BottomNavigationBarIcon name="arrow_downward" label="Decrement" />
+          <BottomNavigationBarItem live-patch="/" icon={"home"} label={"Page 1"} />
+          <BottomNavigationBarItem  icon={"work"} label={"Page 2"} />
+          <BottomNavigationBarItem icon="arrow_upward" label="Increment" />
+          <BottomNavigationBarItem icon="arrow_downward" label="Decrement" />
         </BottomNavigationBar>
       </flutter>
     """
