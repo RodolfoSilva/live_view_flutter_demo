@@ -55,7 +55,7 @@ defmodule FlutterServer.MixProject do
       {:gettext, "~> 0.20"},
       {:jason, "~> 1.2"},
       {:plug_cowboy, "~> 2.5"},
-      {:live_view_native_flutter, "~> 0.1.3"},
+      {:live_view_native_flutter, "~> 0.1.31"},
       {:live_view_native, "~> 0.1"}
     ]
   end
