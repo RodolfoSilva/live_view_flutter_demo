@@ -24,7 +24,7 @@ COPY .tool-versions /www
 # necessary to make nodejs latest work
 RUN asdf latest nodejs
 # install only the plugins that are needed in production
-RUN asdf install erlang && asdf install elixir && asdf install yarn && asdf install nodejs
+RUN asdf install erlang && asdf install elixir
 ENV MIX_ENV=prod
 
 # definition and lock files for packages
