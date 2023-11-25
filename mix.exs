@@ -37,7 +37,7 @@ defmodule FlutterServer.MixProject do
   # Type `mix help deps` for examples and options.
   defp deps do
     [
-      {:live_view_native_flutter, "~> 0.1.32"},
+      {:live_view_native_swift_ui, "~> 0.1"},
       {:phoenix, "~> 1.7.7"},
       {:phoenix_ecto, "~> 4.4"},
       {:ecto_sql, "~> 3.10"},

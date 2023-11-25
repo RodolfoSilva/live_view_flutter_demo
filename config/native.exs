@@ -3,4 +3,4 @@
 import Config
 # [LiveViewNativeFlutter]
 
-config :live_view_native, plugins: [LiveViewNativeFlutter]
+config :live_view_native, plugins: [LiveViewNativeSwiftUi]
