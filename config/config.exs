@@ -11,8 +11,10 @@ config :flutter_server,
   ecto_repos: [FlutterServer.Repo]
 
 # Configures the endpoint
+host = System.get_env("HOSTNAME") || "localhost"
+
 config :flutter_server, FlutterServerWeb.Endpoint,
-  url: [host: "localhost"],
+  url: [host: host],
   render_errors: [
     formats: [html: FlutterServerWeb.ErrorHTML, json: FlutterServerWeb.ErrorJSON],
     layout: false
