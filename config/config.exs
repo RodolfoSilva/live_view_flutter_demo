@@ -19,7 +19,7 @@ config :flutter_server, FlutterServerWeb.Endpoint,
     formats: [html: FlutterServerWeb.ErrorHTML, json: FlutterServerWeb.ErrorJSON],
     layout: false
   ],
-  check_origin: ["https://#{host}", "http://#{host}"],
+  check_origin: ["https://#{host}", "http://#{host}", "https://flutterappdemo.mavio.fr"],
   pubsub_server: FlutterServer.PubSub,
   live_view: [signing_salt: "Q5A+yEYF"]
 
