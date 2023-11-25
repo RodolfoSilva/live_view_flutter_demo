@@ -20,6 +20,8 @@ if System.get_env("PHX_SERVER") do
   config :flutter_server, FlutterServerWeb.Endpoint, server: true
 end
 
+config :live_view_native, plugins: [LiveViewNativeFlutter]
+
 if config_env() == :prod do
   database_url =
     System.get_env("DATABASE_URL") ||
