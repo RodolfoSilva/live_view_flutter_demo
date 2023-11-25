@@ -28,7 +28,7 @@ RUN asdf install erlang && asdf install elixir && asdf install yarn && asdf inst
 ENV MIX_ENV=prod
 
 # definition and lock files for packages
-COPY --chown=asdf:asdf package.json yarn.lock mix.exs mix.lock /www/
+COPY --chown=asdf:asdf mix.exs mix.lock /www/
 # needed for mix
 ENV LANG=C.UTF-8
 
