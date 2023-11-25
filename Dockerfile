@@ -21,11 +21,11 @@ RUN git clone --depth 1 https://github.com/asdf-vm/asdf.git $HOME/.asdf && \
 RUN asdf plugin-add erlang https://github.com/alex-min/asdf-erlang-prebuilt-ubuntu && asdf plugin-add elixir && asdf plugin-add nodejs && asdf plugin-add yarn
 COPY .tool-versions /www
 
+# install only the plugins that are needed in production
+RUN asdf install erlang && asdf install elixir
 
 RUN mix local.rebar --force && mix local.hex --force
 
-# install only the plugins that are needed in production
-RUN asdf install erlang && asdf install elixir
 ENV MIX_ENV=prod
 
 # definition and lock files for packages
