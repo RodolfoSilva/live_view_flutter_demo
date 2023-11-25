@@ -33,7 +33,7 @@ COPY --chown=asdf:asdf mix.exs mix.lock /www/
 ENV LANG=C.UTF-8
 
 # install elixir & node packages
-RUN mix local.rebar --force && mix local.hex --force && mix deps.get --only prod && mix deps.compile && yarn
+RUN mix local.rebar --force && mix local.hex --force && mix deps.get --only prod && mix deps.compile
 
 # copy all the project
 COPY --chown=asdf:asdf . /www 
