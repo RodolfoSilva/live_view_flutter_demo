@@ -37,7 +37,7 @@ RUN mix deps.get --only $MIX_ENV
 
 # compile
 RUN mkdir config
-COPY config/config.exs config/${MIX_ENV}.exs config/
+COPY config/config.exs config/${MIX_ENV}.exs native.exs config/
 RUN mix deps.compile
 
 # copy all the project
