@@ -42,7 +42,7 @@ RUN chmod a+x docker-entrypoint.sh
 
 # Building assets
 ENV NODE_ENV=production
-RUN env SKIP_LOADING_PROD_SECRETS=true mix assets.deploy && rm -rf /var/www/node_modules
+RUN env SKIP_LOADING_PROD_SECRETS=true mix assets.deploy
 
 # we skip loading the prod secrets for the phx.digest & compile since they are not available yet
 RUN env SKIP_LOADING_PROD_SECRETS=true mix phx.digest
