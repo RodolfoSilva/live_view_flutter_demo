@@ -18,7 +18,7 @@ defmodule FlutterServerWeb.HelloLive do
   end
 
   @impl true
-  def render(%{platform_id: :flutter} = assigns) do
+  def render(%{format: :flutter} = assigns) do
     # This UI renders on flutter
     ~FLUTTER"""
       <flutter>

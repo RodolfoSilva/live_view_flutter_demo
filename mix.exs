@@ -37,7 +37,7 @@ defmodule FlutterServer.MixProject do
   # Type `mix help deps` for examples and options.
   defp deps do
     [
-      {:live_view_native_flutter, "~> 0.1.32"},
+      {:live_view_native_flutter, "~> 0.2.0-beta.1"},
       {:phoenix, "~> 1.7.7"},
       {:phoenix_ecto, "~> 4.4"},
       {:ecto_sql, "~> 3.10"},
@@ -45,7 +45,7 @@ defmodule FlutterServer.MixProject do
       {:phoenix_html, "~> 3.3"},
       {:phoenix_live_reload, "~> 1.2", only: :dev},
       {:phoenix_live_view, "~> 0.20.0"},
-      {:floki, ">= 0.30.0", only: :test},
+      {:floki, ">= 0.30.0"},
       {:phoenix_live_dashboard, "~> 0.8.0"},
       {:esbuild, "~> 0.7", runtime: Mix.env() == :dev},
       {:tailwind, "~> 0.2.0", runtime: Mix.env() == :dev},
@@ -56,7 +56,7 @@ defmodule FlutterServer.MixProject do
       {:gettext, "~> 0.20"},
       {:jason, "~> 1.2"},
       {:plug_cowboy, "~> 2.5"},
-      {:live_view_native, "~> 0.1"}
+      {:live_view_native, "~> 0.2.0-beta.1"}
     ]
   end
 
