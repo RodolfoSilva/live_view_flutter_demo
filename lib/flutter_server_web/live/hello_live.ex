@@ -1,8 +1,7 @@
 defmodule FlutterServerWeb.HelloLive do
-  use Phoenix.LiveView
-  use LiveViewNative.LiveView
-  use FlutterServerWeb, :html
-  alias LiveViewNativeFlutter.Dart
+  use FlutterServerWeb, :live_view
+  use FlutterServerNative, :live_view
+  alias LiveViewNative.Flutter.Dart
 
   @topic "hello_live"
 
@@ -15,68 +14,6 @@ defmodule FlutterServerWeb.HelloLive do
   def switch_theme(theme) do
     Dart.switch_theme(theme)
     |> Dart.save_current_theme()
-  end
-
-  @impl true
-  def render(%{format: :flutter} = assigns) do
-    # This UI renders on flutter
-    ~FLUTTER"""
-      <flutter>
-        <AppBar>
-          <title>
-            <Row>
-              <CachedNetworkImage imageUrl="/images/logo.png" width="50" height="50" />
-              hello world - flutter
-            </Row>
-          </title>
-        </AppBar>
-        <viewBody>
-          <Container padding="10">
-            <Container padding={10 + @counter} decoration={bg_color(@counter)}>
-              <Text>Margin Counter <%= @counter %></Text>
-            </Container>
-            <Column>
-              <ElevatedButton phx-value-rr="ee" phx-click={Dart.switch_theme("dark")}>Switch dark theme</ElevatedButton>
-              <Container margin="10 0 0 0">
-                <ElevatedButton phx-click={Dart.switch_theme("light")}>Switch light theme</ElevatedButton>
-              </Container>
-            </Column>
-          </Container>
-        </viewBody>
-        <NavigationRail labelType="all" selectedIndex="0"
-          phx-responsive={Dart.show()}
-          phx-responsive-when="window_width >= 600">
-          <NavigationRailDestination label="Page 1" icon="home" />
-          <NavigationRailDestination label="Page 2" live-patch="/second-page" icon="home" />
-          <NavigationRailDestination label="Increment" icon="arrow_upward" />
-          <NavigationRailDestination label="Decrement" icon="arrow_downward" />
-        </NavigationRail>
-        <BottomNavigationBar
-          showUnselectedLabel="true"
-          phx-responsive={Dart.hide()}
-          phx-responsive-when="window_width > 600"
-          currentIndex="0" selectedItemColor="blue-500">
-          <BottomNavigationBarItem icon="home" label="Page 1" />
-          <BottomNavigationBarItem live-patch="/second-page" icon="home" label="Page 2" />
-          <BottomNavigationBarItem phx-click="inc" icon="arrow_upward" label="Increment" />
-          <BottomNavigationBarItem phx-click="dec" icon="arrow_downward" label="Decrement" />
-        </BottomNavigationBar>
-      </flutter>
-    """
-  end
-
-  @impl true
-  def render(%{} = assigns) do
-    # This UI renders on the web
-    ~H"""
-    <div class="flex flex-col w-full h-screen items-center justify-center">
-      <div>Margin Counter: <%= @counter %> on the web</div>
-      <button value="my button" phx-click="inc" phx-value="rageux" phx-value-re="ff" class="ml-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-       Increment counter
-      </button>
-      <.link patch={~p"/second-page"}>Second page</.link>
-    </div>
-    """
   end
 
   @impl true

@@ -37,7 +37,6 @@ defmodule FlutterServer.MixProject do
   # Type `mix help deps` for examples and options.
   defp deps do
     [
-      {:live_view_native_flutter, "~> 0.2.0-beta.1"},
       {:phoenix, "~> 1.7.7"},
       {:phoenix_ecto, "~> 4.4"},
       {:ecto_sql, "~> 3.10"},
@@ -56,7 +55,10 @@ defmodule FlutterServer.MixProject do
       {:gettext, "~> 0.20"},
       {:jason, "~> 1.2"},
       {:plug_cowboy, "~> 2.5"},
-      {:live_view_native, "~> 0.2.0-beta.1"}
+
+      # Native
+      {:live_view_native, github: "liveview-native/live_view_native", branch: "main"},
+      {:live_view_native_flutter, github: "alex-min/live_view_native_flutter"}
     ]
   end
 

@@ -62,8 +62,23 @@ config :logger, :console,
 # Use Jason for JSON parsing in Phoenix
 config :phoenix, :json_library, Jason
 
+# LVN - Required, you must configure Phoenix so it knows
+# how to compile LVN's neex templates
+config :phoenix, :template_engines, neex: LiveViewNative.Engine
+
+config :mime, :types, %{
+  "text/flutter" => ["flutter"]
+}
+
+config :live_view_native,
+  plugins: [
+    LiveViewNative.Flutter
+  ]
+
+# LVN - Required, you must configure Phoenix to know how
+# to encode for the flutter format
+config :phoenix_template, :format_encoders, flutter: Phoenix.HTML.Engine
+
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{config_env()}.exs"
-
-import_config "native.exs"

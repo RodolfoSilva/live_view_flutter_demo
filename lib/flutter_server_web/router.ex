@@ -2,10 +2,15 @@ defmodule FlutterServerWeb.Router do
   use FlutterServerWeb, :router
 
   pipeline :browser do
-    plug(:accepts, ["html"])
+    plug(:accepts, ["html", "flutter"])
     plug(:fetch_session)
     plug(:fetch_live_flash)
-    plug(:put_root_layout, html: {FlutterServerWeb.Layouts, :root})
+
+    plug(:put_root_layout,
+      html: {FlutterServerWeb.Layouts, :root},
+      flutter: {FlutterServerWeb.Layouts.Flutter, :root}
+    )
+
     plug(:protect_from_forgery)
     plug(:put_secure_browser_headers)
   end
