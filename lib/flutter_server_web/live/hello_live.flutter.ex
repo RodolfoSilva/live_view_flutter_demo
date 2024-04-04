@@ -8,27 +8,17 @@ defmodule FlutterServerWeb.HelloLive.Flutter do
   def render(assigns) do
     # This UI renders on flutter
     ~LVN"""
-        <Container padding="10">
-          <Container padding={10 + @counter} decoration={bg_color(@counter)}>
-            <Text>Margin Counter <%= @counter %></Text>
-          </Container>
-          <Row>
-            <Column>
-              <ElevatedButton phx-value-rr="ee" phx-click={Dart.switch_theme("dark")}>Switch dark theme</ElevatedButton>
-              <Container margin="10 0 0 0">
-                <ElevatedButton phx-click={Dart.switch_theme("light")}>Switch light theme</ElevatedButton>
-              </Container>
-            </Column>
-            <Container margin="0 10 0 0">
-              <Column>
-                <ElevatedButton phx-click="inc">Increment counter</ElevatedButton>
-                <Container margin="10 0 0 0">
-                  <ElevatedButton phx-click="dec">Decrement counter</ElevatedButton>
-                </Container>
-              </Column>
-            </Container>
-          </Row>
-        </Container>
+      <Text>First page</Text>
+    """
+  end
+
+  slot :inner_block
+
+  def text(assigns) do
+    ~LVN"""
+      <Text>
+        <%= render_slot(@inner_block) %>
+      </Text>
     """
   end
 end

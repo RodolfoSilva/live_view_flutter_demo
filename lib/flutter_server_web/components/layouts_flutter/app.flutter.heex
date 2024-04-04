@@ -1,35 +1,15 @@
 <flutter>
-    <.csrf_token />
-    <AppBar elevation="1">
-      <title>Flutter Server</title>
-    </AppBar>
-
-   <Drawer>
-    <ListView>
-      <DrawerHeader decoration="background: @theme.appBarTheme.backgroundColor">
-        <Text>Something here</Text>
-      </DrawerHeader>
-      <Container padding="10">
-        <%= dgettext("auth", "Sign in") %>
-      </Container>
-    </ListView>
-  </Drawer>
+  <.csrf_token />
+  <AppBar elevation="1">
+    <title>Flutter Server</title>
+    <IconButton
+      icon="chevron_left_outlined"
+      phx-click={LiveViewNative.Flutter.Dart.go_back()}
+      as="leading"
+    />
+    <IconButton icon="chevron_right_outlined" phx-href={~p"/second-page"} />
+  </AppBar>
   <viewBody>
     <%= @inner_content %>
   </viewBody>
-    <NavigationRail labelType="all" selectedIndex="0"
-      phx-responsive={LiveViewNative.Flutter.Dart.show()}
-      phx-responsive-when="window_width >= 600">
-      <NavigationRailDestination label="Page 1" live-patch="/" icon="home" />
-      <NavigationRailDestination label="Page 2" live-patch="/second-page" icon="home" />
-    </NavigationRail>
-    <BottomNavigationBar
-      showUnselectedLabel="true"
-      phx-responsive={LiveViewNative.Flutter.Dart.hide()}
-      phx-responsive-when="window_width > 600"
-      currentIndex="0" selectedItemColor="blue-500">
-      <BottomNavigationBarItem live-patch="/"  icon="home" label="Page 1" />
-      <BottomNavigationBarItem live-patch="/second-page" icon="home" label="Page 2" />
-    </BottomNavigationBar>
-
 </flutter>
