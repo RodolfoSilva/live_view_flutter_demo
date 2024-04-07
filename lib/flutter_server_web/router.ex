@@ -24,6 +24,7 @@ defmodule FlutterServerWeb.Router do
 
     live("/", HelloLive)
     live("/second-page", SecondPageLive)
+    live("/third-page", ThirdPageLive)
   end
 
   # Other scopes may use custom stacks.

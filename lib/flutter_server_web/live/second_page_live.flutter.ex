@@ -6,7 +6,15 @@ defmodule FlutterServerWeb.SecondPageLive.Flutter do
   @impl true
   def render(assigns) do
     ~LVN"""
-      <Text>Second page</Text>
+      <Container padding="16">
+        <Text>Second page</Text>
+        <ElevatedButton phx-href={~p"/third-page"}>
+          <Text>Third Page</Text>
+        </ElevatedButton>
+        <ElevatedButton phx-href={Dart.go_back()}>
+          <Text>GO BACK</Text>
+        </ElevatedButton>
+      </Container>
     """
   end
 end

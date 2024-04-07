@@ -8,7 +8,12 @@ defmodule FlutterServerWeb.HelloLive.Flutter do
   def render(assigns) do
     # This UI renders on flutter
     ~LVN"""
-      <Text>First page</Text>
+    <Container padding="16">
+        <Text>First page</Text>
+        <ElevatedButton phx-href={~p"/second-page"}>
+          <Text>Second Page</Text>
+        </ElevatedButton>
+      </Container>
     """
   end
 
