@@ -22,8 +22,15 @@ defmodule FlutterServerWeb.Router do
   scope "/", FlutterServerWeb do
     pipe_through(:browser)
 
-    live("/", HelloLive)
-    live("/second-page", SecondPageLive)
+    live("/log_in", LoginLive)
+
+    live_session :require_authenticated,
+      on_mount: [
+        {FlutterServerWeb.UserAuth, :ensure_authenticated}
+      ] do
+      live("/", HelloLive)
+      live("/second-page", SecondPageLive)
+    end
   end
 
   # Other scopes may use custom stacks.
